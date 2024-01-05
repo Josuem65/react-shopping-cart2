@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+  
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+.mainCart.cartToggled {
+  display: block;
+  position: fixed;
+  width: 30%;
+  background-color: rgb(27, 26, 32);
+  top: 0;
+  right: 0;
+  max-height: 45em;
+}
+
+.mainCart { 
+  display: none;
+}
+
+.cartHeader {
+    margin: 2.5em auto auto auto;
+    color: white;
+    text-align:center;
+    margin-bottom: 1.5em;
+}
+.cartAmountDiv {
+    display: flex;
+    justify-content: center;
+
+}
+
+.cartAmount {
+    background-color: rgb(219, 179, 2);
+    color: white;
+    border-radius: 50%;
+    padding: 0;
+    text-align: center;
+    height: 1.5em;
+    width: 1.5em;
+    list-style: none;
+    margin-bottom: 1em;
+}
+
+.cartAmountDiv p {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    width: 15%;
+    font-weight: 500;
+}
+
+.allCartItems {
+    height: 22em;
+    overflow-y: scroll;
+}
+
+.allCartItems::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+.itemCart{
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: rgb(27, 26, 32);
+    width: 90%;
+    padding: 4.5% 0 4.5% 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.imgCart {
+    max-width: 17%;
+}
+
+
+
+.middleDivCart {
+    margin-left: 3%;
+}
+
+.title {
+    display: block;
+    color: white;
+}
+
+.size {
+    display: inline-block;
+    color: rgb(77, 77, 77);
+}
+
+.description {
+    display: inline-block;
+    color: rgb(77, 77, 77);
+}
+
+.quantity {
+    display: block;
+    color: rgb(77, 77, 77);
+}
+
+
+
+.rightDivCart {
+    width: 13%;
+    margin: 0px 0px 0px auto;
+}
+
+.deleteItem {
+    display: flex;
+    border: none;
+    background-color: rgb(27, 26, 31);
+    color: black;
+    font-size: 1.5em;
+    font-weight: 800;
+    height: 18%;
+    margin: 0px 0px 10% auto;
+    align-items:flex-end;
+}
+
+.itemSubtotal {
+    display: inline-block;
+    color: rgb(219, 179, 2);
+    font-size: 1.1em;
+    margin: 3% auto 8% auto;
+}
+
+.decrease_increaseBtns {
+    margin-top: 20%;
+    height: 26%;
+    margin-bottom: auto auto 0px auto;
+}
+
+.decreaseBtn {
+    display: inline-block;
+    border: none;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(22, 21, 26);
+    color: rgb(59, 58, 63);
+}
+
+.increaseBtn {
+    display: inline-block;
+    border: none;
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 100%;
+}
+
+.subtotalDiv {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin: 5%;
+    max-height: 45em;
+}
+
+.subtotalHeading {
+    list-style: none;
+    color: gray;
+    font-size: 1.3em;
+    font-weight: 100;
+}
+
+.cartSubtotal {
+    color: rgb(219, 179, 2);
+    font-weight: 400;
+    font-size: 1.5em;
+}
