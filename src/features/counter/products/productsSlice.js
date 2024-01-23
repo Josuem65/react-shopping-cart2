@@ -3,7 +3,7 @@ import axios from 'axios';
 import Products from './Products';
 
 const logger = (v) => console.log(JSON.parse(JSON.stringify(v)))
-//logger()
+
 
 export const productsSlice = createSlice({
   name: 'products',
@@ -54,7 +54,7 @@ export const productsSlice = createSlice({
     addToCart: (state, action) => {
       const product = action.payload 
       const index = state.cart.findIndex(item => item.id === product.id)
-      if(index >= 0 ) {
+      if(index > -1) {
         state.cart[index].quantity += 1
         state.subtotal[index] += product.price
       } else {
@@ -64,7 +64,6 @@ export const productsSlice = createSlice({
     },
     decreaseQuantity: (state, action) => {
       const index = state.cart.findIndex(item => item.id === action.payload.id)
-      console.log(index)
       if(action.payload.quantity > 1) {
         state.cart[index].quantity -= 1
         state.subtotal[index] -= action.payload.price
@@ -92,8 +91,8 @@ export const productsSlice = createSlice({
 export const { display, addToFiltered, addToCart, decreaseQuantity, increaseQuantity, deleteFromCart } = productsSlice.actions;
 
 export const getProducts = () => (dispatch) => {
-  axios.get('http://localhost:3001/products')
-  .then((products) => dispatch(display(products.data)))
+  axios.get('https://josuem65.github.io/json-react-shopping-cart/db.json')
+  .then((products) => dispatch(display(products.data.products))) // change to display(products.data.products)
 }
 
 export const selectProducts = (state) => state.products.products; 

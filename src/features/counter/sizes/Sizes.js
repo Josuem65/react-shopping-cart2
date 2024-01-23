@@ -18,7 +18,6 @@ export default function SizeChart() {
             const updatedItem = {...selectedSize, toggled: 1}
             setCurrState([...restOfArr, updatedItem])
         } else if(selectedSize.toggled) {
-            console.log(selectedSize)
             const restOfArr2 = currState.filter((item) => item.value !== size)
             const updatedItem2 = {...selectedSize, toggled: 0}
             setCurrState([...restOfArr2, updatedItem2])
@@ -37,7 +36,7 @@ export default function SizeChart() {
           <div>
             {sizes.map((size, index) => {
                 let thisObj = currState.find((x) => x.key == index)
-                return <button className={thisObj.toggled ? 'sizeBtn toggled': 'siztBtn'} onClick={() => handleSize(size, index)}>{size}</button>
+                return <button className={thisObj.toggled ? 'sizeBtn toggled': 'sizeBtn'} onClick={() => handleSize(size, index)}>{size}</button>
             })}
           </div>
         </div>

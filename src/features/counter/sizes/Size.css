@@ -4,7 +4,17 @@
     padding: 0;
 }
 
-.toggled {
-    background-color: black;
-    color: white;
+.sizeBtn.toggled {
+    background-color: rgb(93, 93, 93);
+    color: rgb(249, 249, 249);
+}
+
+.sizeBtn {
+    background-color: rgb(225, 225, 225);
+    color: rgb(106, 106, 106);
+    border: solid rgb(63, 63, 63);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
 }

@@ -20,11 +20,11 @@
     "start": "concurrently \"json-server --watch -p 3001 db.json\" \"react-scripts --openssl-legacy-provider start\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://josuem65.github.io/react-shopping-cart-2/",
+  "homepage": "https://josuem65.github.io/react-shopping-cart2/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -45,5 +45,23 @@
   },
   "devDependencies": {
     "gh-pages": "^6.1.0"
-  }
+  },
+  "_comment": "add the right plugins for devContentSecurityPolicy below",
+  "plugins": 
+    [
+      "devContentSecurityPolicy",
+      {
+        "reportOnly": true,
+        "reportUri": "https://report-uri.io/example-csp",
+        "policy": {
+          "default-src": "'none'",
+          "script-src": "'self'",
+          "style-src": "'self'",
+          "img-src": "'self'",
+          "font-src": "'self'",
+          "connect-src": "'self'",
+          "media-src": "'self'"
+        }
+      }
+    ]
 }

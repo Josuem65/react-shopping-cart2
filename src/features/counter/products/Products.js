@@ -12,7 +12,7 @@ export default function Products() {
   useEffect(() => {
     dispatch(getProducts())
   }, []);
-
+   //console.log(products[0] ? products[0].img.normal : "still undefined")
   function installments(price, installments, currency) {
     if(installments) {
       let monthly = price / installments
@@ -34,47 +34,22 @@ export default function Products() {
     return (
       <div className={isItToggled ? "mainProducts cartIsToggled": "mainProducts"}>
        {products.map((product, index) => {
-      const price = product.price
-      const installment = product.installments
-      const currency = product.currencyFormat
-
-      return (
-      <div className="eachProduct">
-        {freeShipping(product.isFreeShipping)}
-        <img src={product.img.normal} className="productImg"/>
-        <span className="productTitle">{product.title}</span>
-        <span className="productPrice">{currency}{price}</span>
-        {installments(price, installment, currency)}
-        <button className="addToCartBtn" onClick={() => dispatch(addToCart(product))}>Add to cart</button>
-      </div>
-    )
-    })}
-      </div>
-    )
-  }
- //  F I L T E R E D   F U N C T I O N 
-  function filteredProducts(filtered) {
-    return (
-      <div className={isItToggled ? "mainProducts cartIsToggled": "mainProducts"}>
-       {filtered.map((product, index) => {
-      const price = product.price
-      const installment = product.installments
-      const currency = product.currencyFormat
-
-      return (
-      <div className="eachProduct">
-        {freeShipping(product.isFreeShipping)}
-        <img src={product.img.normal} className="productImg"/>
-        <span className="productTitle">{product.title}</span>
-        <span className="productPrice">{currency}{price}</span>
-        {installments(price, installment, currency)}
-        <button className="addToCartBtn" onClick={() => dispatch(addToCart(product))}>Add to cart</button>
-      </div>
-    )
-    })}
+          const price = product.price
+          const installment = product.installments
+          const currency = product.currencyFormat
+        return (
+        <div className="eachProduct">
+          {freeShipping(product.isFreeShipping)}
+          <img src={`https://josuem65.github.io/react-shopping-cart2${product.img.normal}`}className="productImg"/> 
+          <span className="productTitle">{product.title}</span>
+          <span className="productPrice">{currency}{price}</span>
+          {installments(price, installment, currency)}
+          <button className="addToCartBtn" onClick={() => dispatch(addToCart(product))}>Add to cart</button>
+        </div>
+        )
+        })}
       </div>
     )
   }
-
-  return (filtered.length > 0 ? filteredProducts(filtered) : allProducts(products))
+  return (filtered.length > 0 ? allProducts(filtered) : allProducts(products))
 }

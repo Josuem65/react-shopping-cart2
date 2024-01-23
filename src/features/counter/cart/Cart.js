@@ -9,7 +9,7 @@ export default function Cart() {
     const cartList = useSelector(selectCart)
     const subtotalList = useSelector(selectSubtotal)
     const [ cartToggle, setCartToggle ] = useState(0)
-
+    console.log(cartList)
     function subTotal(item) {
       const sub = item.price * item.quantity
       return sub.toFixed(2)
@@ -29,7 +29,6 @@ export default function Cart() {
 
     useEffect(() => {
       dispatch(toggle(cartToggle))
-      console.log(cartToggle)
     },)
 
     const iconStyle = { backgroundColor: "rgb(27, 26, 32)", color: "white", padding: ".2em", fontSize: "3em", position: "fixed", right: "0", top: "0"}
@@ -40,14 +39,14 @@ export default function Cart() {
       <div className={cartToggle ? "mainCart cartToggled" : "mainCart"} >
         <h1 className="cartHeader">Cart</h1>
         <div className="cartAmountDiv">
-          <li className="cartAmount">{cartList.length}</li>
+          <li className="cartAmount">{cartList.reduce((total, currItem) => total + currItem.quantity, 0)}</li>
           <p>Items</p>
         </div>
         <div className="allCartItems">
         {cartList.map((item) => {
           return (
             <div className="itemCart">
-              <img className="imgCart" src={item.img.thumb}/>
+              <img className="imgCart" src={`https://josuem65.github.io/react-shopping-cart2${item.img.thumb}`}/>
               <div className="middleDivCart">
                 <span className="title">{item.title}</span>
                 <span className="size">{item.availableSizes}</span>
